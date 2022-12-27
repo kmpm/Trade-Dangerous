@@ -236,8 +236,7 @@ def checkForOcrDerp(tdenv, systemName, stationName):
     match = ocrDerp.search(stationName.upper())
     if match:
         tdenv.NOTE(
-            "Ignoring '{}/{}' because it looks like OCR derp."
-            .format(systemName, stationName)
+            f"Ignoring '{systemName}/{stationName}' because it looks like OCR derp."
         )
         return match
     return None
