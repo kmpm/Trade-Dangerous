@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v10.13.10 (2022-12-27)
+### Fix
+* Use f-strings ([`71ed83b`](https://github.com/kmpm/Trade-Dangerous/commit/71ed83b89456a4cad8e69061d36225197fd5ae10))
+
 ## v10.13.9 (2022-12-27)
 ### Fix
 * Make tox work on windows again ([#106](https://github.com/eyeonus/Trade-Dangerous/issues/106)) ([`5309181`](https://github.com/eyeonus/Trade-Dangerous/commit/53091817c5274589b54ed41fe099ba68531fa1d1))
