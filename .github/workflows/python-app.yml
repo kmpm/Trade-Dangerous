@@ -28,7 +28,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Set up Python ${{ matrix.py }}
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.py }}
 
@@ -49,37 +49,3 @@ jobs:
       run: |
         tox
 
-
-  release:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-      with:
-          fetch-depth: 0
-
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.10"
-    
-    - name: Install dependencies
-      run: |
-        python3 -m pip install --upgrade pip
-        python3 -m pip install -r requirements/publish.txt
-
-    - name: Configure git
-      run: |
-        git config --global user.name "semantic-release (via GitHub Actions)"
-        git config --global user.email "semantic-release@gh"
-    
-    - name: semantic-release changelog
-      run: semantic-release changelog
-
-    - name: semantic-release publish if master
-      if: github.ref == 'refs/heads/master'
-      uses: relekang/python-semantic-release@master
-      with: 
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        repository_username: __token__
-        repository_password: ${{ secrets.PYPI_TOKEN }}
