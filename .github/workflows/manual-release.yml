@@ -2,7 +2,7 @@
 name: Manual Release
 
 on:
-    workflow_dispatch:
+  workflow_dispatch:
     inputs:
       py:
         required: true
